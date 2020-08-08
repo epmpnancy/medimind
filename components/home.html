@@ -1,0 +1,94 @@
+<div style="padding-left: 25%;max-width: 800px;max-height: 100%;"><div>
+        <h2 style="padding-top: 21px;text-align: center;padding-bottom:5px;">
+           Welcome Dr. Anshuman Patel   
+        </h2> <div style="    border: 5px solid #f1f1f1;"><p class="warning" style="font-weight: bold;    text-align: center;">DOSAGE MISSED</p>
+                <p style="font-weight: bold ;margin: 20px;">
+                        <span  class="warning"> Akhil Khanna</span> missed 
+                        <span class="warning">Bumex (bumetanide) 2mg</span>
+                        at
+                        <span class="warning">3pm</span> 
+                      </p>
+                      <p style="font-weight: bold ;margin: 20px;">
+                        <span  class="warning"> Aditya Sharma</span>
+                        missed 
+                        <span class="warning"> Neomycin 5mg</span>
+                        at
+                        <span class="warning">3pm</span>
+                         
+                      </p>
+             </div>
+                <div style="padding-top: 20px;">
+                <label class="labelcol" >Your Patients: </label>
+                  <select name="patients" id="patients" style="width:auto;"
+                  ng-options="patient.name for patient in patients"
+                  ng-model="patientSelected" ng-change="getPtDetail()"> <option value="" selected="selected">Select</option></select>
+                </div>
+               
+                <div>
+                <div ng-repeat="pts in patientDetail" class="card">
+                       <div style="display:flex;">
+                         <div style="margin:20px;width: 100%;">
+                                <label class ="labelcol">Medicine Name : </label>
+                                {{pts.name}}
+                        </div><div  style="margin:20px;width: 100%;">
+                                <label class ="labelcol">Frequency : </label>
+                                {{pts.frequency}}
+                        </div>
+                        </div>
+                    
+                    <div style="margin:20px">
+                            <label class ="labelcol">When : </label>
+                            {{pts.when}}
+                    </div>
+                    <div style="margin:20px"><label class ="labelcol" >Alert Time : </label>
+                       
+                    <div style="margin:20px" ng-repeat="time in pts.timeToBuzz">
+                            {{time}}AM
+                    </div>
+                </div>
+                    <div style="margin:20px">
+                            <label class ="labelcol">Prescribed By : </label>
+                            {{pts.prescribedBy}}
+                    </div>
+
+                    <div style="margin:20px">
+                            <label class ="labelcol">Note : </label>
+                            {{pts.note}}
+                    </div>
+                    <div style="text-align: end;">
+                        <a href="" >Edit</a> <a href="" >Remove</a> <a href="">Adherence</a>
+                    </div>
+                    <hr>
+                   
+                </div>
+                </div>
+        </div>
+        <div style="text-align: center;" ng-if="showbutton">
+            <button style="font-weight:bold;font-size: 15px;width: 48%;margin:20px;background-color: #1db79f;color: white;padding: 14px 0;margin: 10px 0;border: none;cursor: grab;border-radius: 5px;" type="button" id="goToPD" ng-click="goToAddPatientDetails(patientSelected)"> Add medicines</button></div>
+      </div>
+</div>
+
+<!-- 
+<div>
+    <div>
+        <div style="margin:20px">
+                <div >
+                  <label >Patient Names : </label>
+                  <select name="patients" id="patients"
+                  ng-options="patient.name for patient in patients.patient track by patient.id"
+                  ng-model="patients.selectedPatient"></select>
+                </div>
+                <div ng-repeat="pts in patients.selectedPatient.patientDetail">
+                    <div>Frequency : {{pts.frequency}}</div>
+                    <div>when : {{pts.when}}</div>
+                    <div>alertTime : {{pts.alertTime}}</div>
+                </div>
+        </div>
+        <div style="margin:20px">
+            <label>Prescribed By :</label>
+            <input type="text" id="prescribedBy" ng-model="prescribedBy" />
+        </div>
+        <button style="margin:20px" type="button" id="goToPD" ng-click="goToAddPatientDetails(patients.selectedPatient)"> Go to Add Patient medicines</button>
+    </div>
+    
+</div> -->

@@ -1,0 +1,53 @@
+<html>
+  <title>Add</title>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+   
+  </head>
+  <body>
+        
+    <div class="content"><div style="padding-left: 35%;padding-top: 2%;">
+      <form name="addMedication" style="width: 45%;">
+      <h1>{{patientDetails.name}}</h1>
+      <div class="icon">
+        <i class="fas fa-user-circle"></i>
+      </div>
+      <div class="formcontainer">
+      <div class="container">
+        <label for="medicineName"><strong>Medicine Name :</strong></label>
+        <input type="text" id="medicineName" ng-model="patient.medicineName" placeholder="Medicine Name"  required>
+        
+        <label for="medicineFrequency"><strong>Medicine Frequency :</strong></label>
+        <select id="medicineFrequency"  ng-model="patient.frequency">
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+       </select>
+        <!-- <input type="text" id="medicineFrequency" ng-model="patient.medicineFrequency" placeholder="Enter Medicine Frequency"  required> -->
+        <label for="beforeAfterMeal"><strong> Before or After Meals ?</strong></label>
+        <select id="beforeAfterMeal" ng-model="patient.when">
+                <option value="">Select</option>
+                <option value="A">Before</option>
+                <option value="B">After</option>
+                <option value="NA">Not Applicable</option>
+       </select>
+        <label for="timeToAlert"><strong>Time to alert:</strong></label>
+        
+        <div style="padding-top: 2px;">
+        <div ng-repeat="alert in alerts">
+        <input type="checkbox" value="alert.value"  ng-checked="isChecked" id="check_alert.value" name="checklist" ng-model="alert.selected">
+        <label for="check_alert.value" class="check"><span>{{alert.label}}</span></label></div>
+        <div style="margin-top: 10px;">
+        <label for="remarks"><strong>Remarks:</strong></label>
+        <input type="text" id="remarks" ng-model="patient.remarks" placeholder="Enter Remarks" style="margin-top: 5px;">
+    </div>
+    {{isChecked}}
+      </div>
+      <div style="text-align: center;"><button type="submit" ng-click="submitStudnetForm(patient)"/>Add Schedules</button></div>
+    </form>
+</div>
+  </body>
+</html>
